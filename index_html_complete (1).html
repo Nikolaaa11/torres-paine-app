@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="background-color" content="#0f172a">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Torres Paine">
+    <meta name="application-name" content="Torres Paine">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="La aplicación definitiva para planificar tu aventura en Torres del Paine. Guía completa, mapas offline, planificación paso a paso.">
+    <meta name="keywords" content="Torres del Paine, Patagonia, trekking, hiking, Chile, aventura, montañismo, circuito O">
+    <meta name="author" content="Torres del Paine Planning Assistant">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Torres del Paine - Planning Assistant">
+    <meta property="og:description" content="La aventura más épica de tu vida te espera en el corazón de la Patagonia">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://example.com/torres-preview.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Torres del Paine - Planning Assistant">
+    <meta name="twitter:description" content="Planifica tu aventura en Torres del Paine con nuestra app inteligente">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNCIgZmlsbD0iIzNiODJmNiIvPgo8cGF0aCBkPSJNMTYgOEwxMiAxNkgyMEwxNiA4WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- CSS Framework - Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'torres-blue': '#3b82f6',
+                        'torres-cyan': '#06b6d4'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- React -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- Lucide React Icons -->
+    <script src="https://unpkg.com/lucide-react@latest/dist/umd/lucide-react.js"></script>
+    
+    <title>Torres del Paine - Planning Assistant</title>
+    
+    <style>
+        /* Custom CSS para optimizaciones móviles Samsung S24 */
+        * {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            min-height: 100vh;
+            min-height: 100dvh; /* Dynamic viewport height para móviles */
+            color: white;
+        }
+        
+        /* Samsung Galaxy S24 Optimizaciones */
+        /* AMOLED Display optimizado */
+        .amoled-optimized {
+            background: #000000;
+            color: #ffffff;
+        }
+        
+        /* 120Hz smooth animations */
+        .smooth-120hz {
+            transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* PWA Safe Areas para dispositivos con notch */
+        .safe-area-top {
+            padding-top: env(safe-area-inset-top);
+        }
+        
+        .safe-area-bottom {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        
+        .safe-area-left {
+            padding-left: env(safe-area-inset-left);
+        }
+        
+        .safe-area-right {
+            padding-right: env(safe-area-inset-right);
+        }
+        
+        /* GPU Acceleration para mejor performance */
+        .gpu-accelerated {
+            transform: translateZ(0);
+            will-change: transform;
+            backface-visibility: hidden;
+        }
+        
+        /* Loading Animation */
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid #1e293b;
+            border-top: 3px solid #3b82f6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Slide animations */
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .slide-in-animation {
+            animation: slideInRight 0.3s ease-out;
+        }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Prevenir zoom en inputs (iOS/Android) */
+        input, select, textarea {
+            font-size: 16px !important;
+            border-radius: 8px;
+        }
+        
+        /* Touch optimizations para Samsung S24 */
+        button, .clickable {
+            min-height: 44px;
+            min-width: 44px;
+            touch-action: manipulation;
+        }
+        
+        /* Optimizaciones de performance */
+        .performance-optimized {
+            contain: layout style paint;
+        }
+        
+        /* Reduced motion para accesibilidad */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Pattern background */
+        .bg-pattern {
+            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0);
+            background-size: 20px 20px;
+        }
+        
+        /* Glassmorphism effects */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Samsung One UI inspired styling */
+        .samsung-card {
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* High contrast for AMOLED */
+        .high-contrast {
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+
+<body class="safe-area-top safe-area-bottom">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="fixed inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center z-50">
+        <div class="text-center">
+            <div class="loading-spinner mx-auto mb-6"></div>
+            <h1 class="text-3xl font-bold text-white mb-2 high-contrast">Torres del Paine</h1>
+            <p class="text-blue-200 mb-4">Cargando tu aventura...</p>
+            <div class="w-64 bg-gray-700 rounded-full h-2 mx-auto">
+                <div id="loading-progress" class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- PWA Install Banner -->
+    <div id="install-banner" class="hidden fixed top-0 left-0 right-0 bg-gradient-to-r from-blue-600 to-cyan-600 p-4 z-40 safe-area-top">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                    <span class="text-blue-600 font-bold">🏔️</span>
+                </div>
+                <div>
+                    <p class="text-white font-semibold">¡Instala Torres del Paine!</p>
+                    <p class="text-blue-100 text-sm">Para mejor experiencia offline</p>
+                </div>
+            </div>
+            <div class="flex space-x-2">
+                <button id="install-btn" class="bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-all duration-300">
+                    Instalar
+                </button>
+                <button id="dismiss-install" class="text-white hover:text-blue-200 p-2 transition-all duration-300">
+                    ✕
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Offline Indicator -->
+    <div id="offline-indicator" class="hidden fixed top-4 left-4 right-4 bg-yellow-500/90 backdrop-blur-sm text-white px-4 py-3 rounded-xl shadow-lg border border-yellow-400/30 z-50 slide-in-animation">
+        <div class="flex items-center space-x-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 15.5c-.77.833.192 2.5 1.732 2.5z"></path>
+            </svg>
+            <span class="font-medium">Sin conexión - Modo offline activo</span>
+        </div>
+    </div>
+    
+    <!-- Update Available -->
+    <div id="update-banner" class="hidden fixed top-4 left-4 right-4 bg-green-500/90 backdrop-blur-sm text-white px-4 py-3 rounded-xl shadow-lg border border-green-400/30 z-50 slide-in-animation">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="font-semibold">Nueva versión disponible</p>
+                <p class="text-sm text-green-100">Toca para actualizar la app</p>
+            </div>
+            <button id="update-btn" class="bg-white text-green-600 px-4 py-2 rounded-lg font-semibold hover:bg-green-50 transition-all duration-300">
+                Actualizar
+            </button>
+        </div>
+    </div>
+    
+    <!-- Main App Container -->
+    <div id="root" class="min-h-screen performance-optimized"></div>
+    
+    <!-- Scripts -->
+    <script>
+        // PWA Variables
+        let installPrompt = null;
+        let newWorker = null;
+        
+        // Loading Progress Simulation
+        function simulateLoading() {
+            const progressBar = document.getElementById('loading-progress');
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                    setTimeout(hideLoadingScreen, 500);
+                }
+                progressBar.style.width = progress + '%';
+            }, 200);
+        }
+        
+        function hideLoadingScreen() {
+            const loadingScreen = document.getElementById('loading-screen');
+            loadingScreen.style.opacity = '0';
+            loadingScreen.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 300);
+        }
+        
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(registration => {
+                        console.log('SW registrado exitosamente:', registration.scope);
+                        
+                        // Check for updates
+                        registration.addEventListener('updatefound', () => {
+                            newWorker = registration.installing;
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    showUpdateBanner();
+                                }
+                            });
+                        });
+                    })
+                    .catch(error => {
+                        console.log('SW registro falló:', error);
+                    });
+                
+                // Check for existing service worker
+                if (navigator.serviceWorker.controller) {
+                    console.log('SW ya está controlando la página');
+                }
+            });
+        }
+        
+        // PWA Install Prompt
+        window.addEventListener('beforeinstallprompt', (e) => {
+            console.log('PWA Install prompt interceptado');
+            e.preventDefault();
+            installPrompt = e;
+            showInstallBanner();
+        });
+        
+        // Show install banner
+        function showInstallBanner() {
+            const banner = document.getElementById('install-banner');
+            banner.classList.remove('hidden');
+            
+            document.getElementById('install-btn').addEventListener('click', installPWA);
+            document.getElementById('dismiss-install').addEventListener('click', () => {
+                banner.classList.add('hidden');
+                localStorage.setItem('pwa-install-dismissed', 'true');
+            });
+        }
+        
+        // Install PWA
+        async function installPWA() {
+            if (!installPrompt) {
+                console.log('Install prompt no disponible');
+                return;
+            }
+            
+            installPrompt.prompt();
+            const result = await installPrompt.userChoice;
+            
+            if (result.outcome === 'accepted') {
+                console.log('PWA instalada exitosamente');
+                document.getElementById('install-banner').classList.add('hidden');
+            }
+            
+            installPrompt = null;
+        }
+        
+        // Show update banner
+        function showUpdateBanner() {
+            const banner = document.getElementById('update-banner');
+            banner.classList.remove('hidden');
+            
+            document.getElementById('update-btn').addEventListener('click', () => {
+                if (newWorker) {
+                    newWorker.postMessage({ action: 'skipWaiting' });
+                    window.location.reload();
+                }
+            });
+        }
+        
+        // Online/Offline Status
+        function updateOnlineStatus() {
+            const indicator = document.getElementById('offline-indicator');
+            if (navigator.onLine) {
+                indicator.classList.add('hidden');
+            } else {
+                indicator.classList.remove('hidden');
+            }
+        }
+        
+        window.addEventListener('online', updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
+        window.addEventListener('load', updateOnlineStatus);
+        
+        // Samsung S24 Optimizations
+        function optimizeForSamsungS24() {
+            // Detect if running on Samsung device
+            const userAgent = navigator.userAgent.toLowerCase();
+            const isSamsung = userAgent.includes('samsung') || userAgent.includes('sm-');
+            
+            if (isSamsung) {
+                console.log('Samsung device detected - applying optimizations');
+                
+                // Enable high refresh rate optimizations
+                document.body.classList.add('smooth-120hz');
+                
+                // Optimize for AMOLED
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.body.classList.add('amoled-optimized');
+                }
+            }
+        }
+        
+        // Prevent pinch zoom
+        document.addEventListener('touchstart', (e) => {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+        
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', (e) => {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                e.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+        
+        // Performance monitoring
+        window.addEventListener('load', () => {
+            simulateLoading();
+            optimizeForSamsungS24();
+            
+            // Performance metrics
+            if ('performance' in window) {
+                const perfData = performance.getEntriesByType('navigation')[0];
+                const loadTime = perfData.loadEventEnd - perfData.loadEventStart;
+                console.log(`App load time: ${loadTime}ms`);
+                
+                // Report to analytics if needed
+                if (loadTime > 3000) {
+                    console.warn('Slow loading detected');
+                }
+            }
+        });
+        
+        // Memory management
+        window.addEventListener('beforeunload', () => {
+            // Clean up resources
+            if (window.gc) {
+                window.gc();
+            }
+        });
+        
+        // Check if PWA install was dismissed
+        if (localStorage.getItem('pwa-install-dismissed') === 'true') {
+            // Don't show install banner
+        }
+        
+        // Haptic feedback for Samsung devices (if available)
+        function hapticFeedback(type = 'light') {
+            if ('vibrate' in navigator) {
+                switch(type) {
+                    case 'light':
+                        navigator.vibrate(10);
+                        break;
+                    case 'medium':
+                        navigator.vibrate(50);
+                        break;
+                    case 'heavy':
+                        navigator.vibrate([100, 30, 100]);
+                        break;
+                }
+            }
+        }
+        
+        // Make haptic feedback available globally
+        window.hapticFeedback = hapticFeedback;
+    </script>
+    
+    <!-- Load the main React app -->
+    <script type="text/babel" src="app.js"></script>
+</body>
+</html>

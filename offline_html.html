@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3b82f6">
+    <title>Torres del Paine - Offline</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .offline-container {
+            text-align: center;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .mountain-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .offline-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .offline-subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .offline-features {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .feature-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #60a5fa;
+            margin-bottom: 15px;
+        }
+        
+        .feature-list {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            color: #cbd5e1;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .feature-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        .connection-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+            padding: 12px 20px;
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 8px;
+            color: #fca5a5;
+        }
+        
+        .connection-dot {
+            width: 12px;
+            height: 12px;
+            background: #ef4444;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .retry-button {
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 20px;
+        }
+        
+        .retry-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+        }
+        
+        .retry-button:active {
+            transform: translateY(0);
+        }
+        
+        .footer-text {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-top: 30px;
+            line-height: 1.5;
+        }
+        
+        /* Samsung S24 optimizations */
+        @media (max-width: 768px) {
+            .offline-container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            
+            .offline-title {
+                font-size: 2rem;
+            }
+            
+            .mountain-icon {
+                font-size: 60px;
+            }
+        }
+        
+        /* AMOLED optimization */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #000000;
+            }
+            
+            .offline-container {
+                background: rgba(30, 41, 59, 0.8);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="mountain-icon">🏔️</div>
+        
+        <h1 class="offline-title">Torres del Paine</h1>
+        <p class="offline-subtitle">
+            Tu aventura continúa sin conexión.<br>
+            Los datos esenciales están disponibles offline.
+        </p>
+        
+        <div class="connection-status">
+            <div class="connection-dot"></div>
+            <span>Sin conexión a internet</span>
+        </div>
+        
+        <div class="offline-features">
+            <h3 class="feature-title">📱 Disponible Offline:</h3>
+            <ul class="feature-list">
+                <li>Mapa completo del Circuito O</li>
+                <li>Planificación paso a paso</li>
+                <li>Lista de equipamiento</li>
+                <li>Calculadora de presupuesto</li>
+                <li>Menús diarios completos</li>
+                <li>Números de emergencia</li>
+                <li>Todos los datos del viaje</li>
+            </ul>
+        </div>
+        
+        <button class="retry-button" onclick="checkConnection()">
+            🔄 Verificar Conexión
+        </button>
+        
+        <p class="footer-text">
+            La app funciona completamente offline.<br>
+            Los datos se sincronizarán cuando tengas conexión.
+        </p>
+    </div>
+    
+    <script>
+        // Verificar conexión
+        function checkConnection() {
+            if (navigator.onLine) {
+                // Intentar cargar la página principal
+                window.location.href = '/';
+            } else {
+                // Mostrar mensaje de que sigue sin conexión
+                showTemporaryMessage('⚠️ Aún sin conexión. Intenta más tarde.');
+            }
+        }
+        
+        // Mostrar mensaje temporal
+        function showTemporaryMessage(message) {
+            const button = document.querySelector('.retry-button');
+            const originalText = button.textContent;
+            
+            button.textContent = message;
+            button.style.background = 'rgba(239, 68, 68, 0.8)';
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.background = 'linear-gradient(135deg, #3b82f6, #06b6d4)';
+            }, 2000);
+        }
+        
+        // Escuchar cambios de conexión
+        window.addEventListener('online', () => {
+            console.log('Conexión restaurada');
+            const status = document.querySelector('.connection-status');
+            status.innerHTML = `
+                <div style="width: 12px; height: 12px; background: #10b981; border-radius: 50%;"></div>
+                <span style="color: #6ee7b7;">Conexión restaurada</span>
+            `;
+            status.style.background = 'rgba(16, 185, 129, 0.2)';
+            status.style.borderColor = 'rgba(16, 185, 129, 0.3)';
+            
+            // Redirigir automáticamente después de 2 segundos
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 2000);
+        });
+        
+        window.addEventListener('offline', () => {
+            console.log('Conexión perdida');
+            const status = document.querySelector('.connection-status');
+            status.innerHTML = `
+                <div class="connection-dot"></div>
+                <span>Sin conexión a internet</span>
+            `;
+            status.style.background = 'rgba(239, 68, 68, 0.2)';
+            status.style.borderColor = 'rgba(239, 68, 68, 0.3)';
+        });
+        
+        // Verificar estado inicial
+        document.addEventListener('DOMContentLoaded', () => {
+            if (navigator.onLine) {
+                checkConnection();
+            }
+        });
+        
+        // Optimización para Samsung S24
+        if (navigator.userAgent.toLowerCase().includes('samsung')) {
+            document.body.classList.add('samsung-optimized');
+            console.log('Samsung device detected - offline optimizations applied');
+        }
+        
+        // Haptic feedback si está disponible
+        function hapticFeedback() {
+            if ('vibrate' in navigator) {
+                navigator.vibrate(50);
+            }
+        }
+        
+        // Agregar haptic feedback al botón
+        document.querySelector('.retry-button').addEventListener('click', hapticFeedback);
+    </script>
+</body>
+</html>

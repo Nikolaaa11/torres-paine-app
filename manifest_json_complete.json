@@ -1,0 +1,164 @@
+{
+  "name": "Torres del Paine - Planning Assistant",
+  "short_name": "Torres Paine",
+  "description": "La aplicación definitiva para planificar tu aventura en Torres del Paine. Guía completa con mapas offline, planificación paso a paso, calculadora de presupuesto y más.",
+  "version": "1.0.0",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "es",
+  "dir": "ltr",
+  
+  "theme_color": "#3b82f6",
+  "background_color": "#0f172a",
+  
+  "icons": [
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHZpZXdCb3g9IjAgMCA3MiA3MiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjcyIiBoZWlnaHQ9IjcyIiByeD0iMTIiIGZpbGw9InVybCgjZ3JhZGllbnQwX2xpbmVhcl8xXzEpIi8+CjxwYXRoIGQ9Ik0zNiAxNkwyNyAzNkg0NUwzNiAxNloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xOCA1NEwyNyAzNkg0NUw1NCA1NEgxOFoiIGZpbGw9IndoaXRlIi8+Cjx0ZXh0IHg9IjM2IiB5PSI2NCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI4IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiPlRPUlJFUzwvdGV4dD4KPGR1ZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZGllbnQwX2xpbmVhcl8xXzEiIHgxPSIwIiB5MT0iMCIgeDI9IjcyIiB5Mj0iNzIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzNiODJmNiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwNmI2ZDQiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K",
+      "sizes": "72x72",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHZpZXdCb3g9IjAgMCA5NiA5NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9Ijk2IiBoZWlnaHQ9Ijk2IiByeD0iMTYiIGZpbGw9InVybCgjZ3JhZGllbnQwX2xpbmVhcl8xXzEpIi8+CjxwYXRoIGQ9Ik00OCAyMUwzNiA0OEg2MEw0OCAyMVoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0yNCA3Mkgz2IAzNkw3MiA3MkgyNFoiIGZpbGw9IndoaXRlIi8+Cjx0ZXh0IHg9IjQ4IiB5PSI4NiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIj5UT1JSRVM8L3RleHQ+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImdyYWRpZW50MF9saW5lYXJfMV8xIiB4MT0iMCIgeTE9IjAiIHgyPSI5NiIgeTI9Ijk2IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiMzYjgyZjYiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDZiNmQ0Ii8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+Cg==",
+      "sizes": "96x96",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiByeD0iMjAiIGZpbGw9InVybCgjZ3JhZGllbnQwX2xpbmVhcl8xXzEpIi8+CjxwYXRoIGQ9Ik02NCAyOEw0OCA2NEg4MEw2NCAyOFoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0zMiA5Nkg0OCA2NEg4MEw5NiA5NkgzMloiIGZpbGw9IndoaXRlIi8+Cjx0ZXh0IHg9IjY0IiB5PSIxMTQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSI+VE9SUkVTPC90ZXh0Pgo8dGV4dCB4PSI2NCIgeT0iMTI2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjgiIGZpbGw9IndoaXRlIj5QQUlORTwvdGV4dD4KPGR1ZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZGllbnQwX2xpbmVhcl8xXzEiIHgxPSIwIiB5MT0iMCIgeDI9IjEyOCIgeTI9IjEyOCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjM2I4MmY2Ii8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzA2YjZkNCIvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+Cjwvc3ZnPgo=",
+      "sizes": "128x128",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiByeD0iMjQiIGZpbGw9InVybCgjZ3JhZGllbnQwX2xpbmVhcl8xXzEpIi8+CjxwYXRoIGQ9Ik05NiA0Mkw3MiA5NkgxMjBMOTYgNDJaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNDggMTQ0TDcyIDk2SDEyMEwxNDQgMTQ0SDQ4WiIgZmlsbD0id2hpdGUiLz4KPHA+dGV4dCB4PSI5NiIgeT0iMTcwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiPlRPUlJFUzwvdGV4dD4KPHA+dGV4dCB4PSI5NiIgeT0iMTg2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEyIiBmaWxsPSJ3aGl0ZSI+UEFJTkU8L3RleHQ+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImdyYWRpZW50MF9saW5lYXJfMV8xIiB4MT0iMCIgeTE9IjAiIHgyPSIxOTIiIHkyPSIxOTIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzNiODJmNiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwNmI2ZDQiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iNjQiIGZpbGw9InVybCgjZ3JhZGllbnQwX2xpbmVhcl8xXzEpIi8+CjxwYXRoIGQ9Ik0yNTYgMTEyTDE5MiAyNTZIMzIwTDI1NiAxMTJaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMTI4IDM4NEwxOTIgMjU2SDMyMEwzODQgMzg0SDEyOFoiIGZpbGw9IndoaXRlIi8+Cjx0ZXh0IHg9IjI1NiIgeT0iNDUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjQwIiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiPlRPUlJFUzwvdGV4dD4KPHA+dGV4dCB4PSIyNTYiIHk9IjQ5MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIzMCIgZmlsbD0id2hpdGUiPlBBSU5FPC90ZXh0Pgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJncmFkaWVudDBfbGluZWFyXzFfMSIgeDE9IjAiIHkxPSIwIiB4Mj0iNTEyIiB5Mj0iNTEyIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiMzYjgyZjYiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDZiNmQ0Ii8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+Cg==",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxtYXNrIGlkPSJtYXNrIj4KPHJlY3Qgd2lkdGg9IjE5MiIgaGVpZ2h0PSIxOTIiIHJ4PSIyNCIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTk2IDQyTDcyIDk2SDEyMEw5NiA0MloiIGZpbGw9ImJsYWNrIi8+CjxwYXRoIGQ9Ik00OCAxNDRMNzIgOTZIMTIwTDE0NCAxNDRINDhaIiBmaWxsPSJibGFjayIvPgo8L21hc2s+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiByeD0iMjQiIGZpbGw9InVybCgjZ3JhZGllbnQwX2xpbmVhcl8xXzEpIiBtYXNrPSJ1cmwoI21hc2spIi8+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImdyYWRpZW50MF9saW5lYXJfMV8xIiB4MT0iMCIgeTE9IjAiIHgyPSIxOTIiIHkyPSIxOTIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzNiODJmNiIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwNmI2ZDQiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  
+  "categories": [
+    "travel",
+    "lifestyle",
+    "sports",
+    "navigation",
+    "utilities"
+  ],
+  
+  "screenshots": [
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjY0MCIgdmlld0JveD0iMCAwIDMyMCA2NDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMjAiIGhlaWdodD0iNjQwIiBmaWxsPSIjMGYxNzJhIi8+CjxyZWN0IHg9IjIwIiB5PSI0MCIgd2lkdGg9IjI4MCIgaGVpZ2h0PSIxMDAiIHJ4PSIxMiIgZmlsbD0iIzNiODJmNiIvPgo8dGV4dCB4PSIxNjAiIHk9IjEwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIyNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIj5Ub3JyZXMgZGVsIFBhaW5lPC90ZXh0Pgo8cmVjdCB4PSIyMCIgeT0iMTYwIiB3aWR0aD0iMjgwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iIzMzNDE1NyIvPgo8dGV4dCB4PSI0MCIgeT0iMTkwIiBmb250LXNpemU9IjE0IiBmaWxsPSJ3aGl0ZSI+MTMwIGttIC0gOCBkw61hczwvdGV4dD4KPHA+dGV4dCB4PSI0MCIgeT0iMjEwIiBmb250LXNpemU9IjEyIiBmaWxsPSIjOWNhM2FmIj5DaXJjdWl0byBPIGNvbXBsZXRvPC90ZXh0Pgo8cmVjdCB4PSIyMCIgeT0iMjYwIiB3aWR0aD0iMjgwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iIzMzNDE1NyIvPgo8dGV4dCB4PSI0MCIgeT0iMjkwIiBmb250LXNpemU9IjE0IiBmaWxsPSJ3aGl0ZSI+UGxhbmlmaWNhY2nDs24gUGFzbyBhIFBhc288L3RleHQ+CjxyZWN0IHg9IjIwIiB5PSIzNjAiIHdpZHRoPSIyODAiIGhlaWdodD0iODAiIHJ4PSI4IiBmaWxsPSIjMzM0MTU3Ii8+Cjx0ZXh0IHg9IjQwIiB5PSIzOTAiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IndoaXRlIj5FcXVpcGFtaWVudG8gQ29tcGxldG88L3RleHQ+CjxyZWN0IHg9IjIwIiB5PSI0NjAiIHdpZHRoPSIyODAiIGhlaWdodD0iODAiIHJ4PSI4IiBmaWxsPSIjMzM0MTU3Ii8+Cjx0ZXh0IHg9IjQwIiB5PSI0OTAiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IndoaXRlIj5DYWxjdWxhZG9yYSBQcmVzdXB1ZXN0bzwvdGV4dD4KPC9zdmc+",
+      "sizes": "320x640",
+      "type": "image/svg+xml",
+      "form_factor": "narrow",
+      "label": "Pantalla principal de Torres del Paine"
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzY4IiBoZWlnaHQ9IjEwMjQiIHZpZXdCb3g9IjAgMCA3NjggMTAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9Ijc2OCIgaGVpZ2h0PSIxMDI0IiBmaWxsPSIjMGYxNzJhIi8+CjxyZWN0IHg9IjQwIiB5PSI4MCIgd2lkdGg9IjY4OCIgaGVpZ2h0PSIyMDAiIHJ4PSIxNiIgZmlsbD0iIzMzNDE1NyIvPgo8Y2lyY2xlIGN4PSIyMDAiIGN5PSIyMDAiIHI9IjgwIiBmaWxsPSIjM2I4MmY2Ii8+Cjx0ZXh0IHg9IjM4NCIgeT0iMTYwIiBmb250LXNpemU9IjMyIiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiPk1hcGEgSW50ZXJhY3Rpdm88L3RleHQ+Cjx0ZXh0IHg9IjM4NCIgeT0iMjAwIiBmb250LXNpemU9IjE4IiBmaWxsPSIjOWNhM2FmIj5DaXJjdWl0byBPIC0gVG9ycmVzIGRlbCBQYWluZTwvdGV4dD4KPHJlY3QgeD0iNDAiIHk9IjMyMCIgd2lkdGg9IjY4OCIgaGVpZ2h0PSI0MDAiIHJ4PSIxNiIgZmlsbD0iIzMzNDE1NyIvPgo8dGV4dCB4PSI0MCIgeT0iNzgwIiBmb250LXNpemU9IjI0IiBmaWxsPSJ3aGl0ZSI+RnVuY2lvbmFsaWRhZGVzIGF2YW56YWRhczwvdGV4dD4KPC9zdmc+",
+      "sizes": "768x1024",
+      "type": "image/svg+xml",
+      "form_factor": "wide",
+      "label": "Vista del mapa interactivo"
+    }
+  ],
+  
+  "shortcuts": [
+    {
+      "name": "Mapa Circuito O",
+      "short_name": "Mapa",
+      "description": "Ver el mapa interactivo del Circuito O",
+      "url": "/?view=map",
+      "icons": [
+        {
+          "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHZpZXdCb3g9IjAgMCA5NiA5NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDgiIGN5PSI0OCIgcj0iNDgiIGZpbGw9IiMzYjgyZjYiLz4KPHA+dGV4dCB4PSI0OCIgeT0iNTgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMzAiIGZpbGw9IndoaXRlIj7wn5OqPC90ZXh0Pgo8L3N2Zz4K",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Planificación",
+      "short_name": "Plan",
+      "description": "Ver planificación paso a paso",
+      "url": "/?view=planning",
+      "icons": [
+        {
+          "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHZpZXdCb3g9IjAgMCA5NiA5NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDgiIGN5PSI0OCIgcj0iNDgiIGZpbGw9IiMxMGI5ODEiLz4KPHA+dGV4dCB4PSI0OCIgeT0iNTgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMzAiIGZpbGw9IndoaXRlIj7inJM8L3RleHQ+Cjwvc3ZnPgo=",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Equipamiento",
+      "short_name": "Gear",
+      "description": "Lista completa de equipamiento",
+      "url": "/?view=gear",
+      "icons": [
+        {
+          "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHZpZXdCb3g9IjAgMCA5NiA5NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDgiIGN5PSI0OCIgcj0iNDgiIGZpbGw9IiNlZjQ0NDQiLz4KPHA+dGV4dCB4PSI0OCIgeT0iNTgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMzAiIGZpbGw9IndoaXRlIj7wn44SPC90ZXh0Pgo8L3N2Zz4K",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Emergencia",
+      "short_name": "SOS",
+      "description": "Números de emergencia y rescate",
+      "url": "/?emergency=true",
+      "icons": [
+        {
+          "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHZpZXdCb3g9IjAgMCA5NiA5NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDgiIGN5PSI0OCIgcj0iNDgiIGZpbGw9IiNkYzI2MjYiLz4KPHA+dGV4dCB4PSI0OCIgeT0iNTgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMzAiIGZpbGw9IndoaXRlIj7inaDvuI88L3RleHQ+Cjwvc3ZnPgo=",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ],
+  
+  "prefer_related_applications": false,
+  "related_applications": [],
+  
+  "iarc_rating_id": "",
+  
+  "edge_side_panel": {
+    "preferred_width": 480
+  },
+  
+  "protocol_handlers": [],
+  
+  "file_handlers": [],
+  
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "files",
+          "accept": ["image/*", ".pdf", ".txt"]
+        }
+      ]
+    }
+  }
+}
